@@ -1,7 +1,6 @@
 # Create an RPM with a systemd service via CPack
-This is a bare-bones project that demonstrates how to create
-an RPM using CPack that contains a systemd service. I'm a
-novice when in comes to creating RPMs- _caveat emptor_.
+This project uses CPack to create an RPM containing a systemd
+service. I'm a novice when in comes to creating RPMs- _caveat emptor_.
 
 Here's a utilitarian user's guide:
 ```bash
