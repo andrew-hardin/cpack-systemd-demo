@@ -1,0 +1,15 @@
+# Copy the service file to the service unit directory.
+service_name=@SERVICE_NAME@
+%{__install} -m644 $RPM_INSTALL_PREFIX/share/$service_name %{_unitdir}/$service_name
+%systemd_post $service_name
+
+# Not required, but it lets the user know the name of the
+# service by printing it to the terminal. Also, if it's disabled,
+# it'll return exit code 3, which gets interpreted as a failure.
+#
+# Suffocate any exit code that this prints - it's purely diagnostic.
+systemctl status $service_name || true
+
+printf %"$COLUMNS"s |tr " " "-"
+echo "$service_name was installed but wasn't started or enabled."
+printf %"$COLUMNS"s |tr " " "-"
