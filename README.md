@@ -26,7 +26,15 @@ yum remove hello-world
 systemctl status hello-world
 ```
 
+## Upgrading from 0.1...
+This project was fixed to support upgrades to the RPM package.
+If you're creating your own RPMs, I strongly recommend testing
+the upgrade process _before_ shipping.
+
+
 ## References
 - [Fedora: Systemd Packaging](https://fedoraproject.org/wiki/Packaging:Systemd#Packaging)
 - [Fedora: Systemd Scriptlets](https://docs.fedoraproject.org/en-US/packaging-guidelines/Scriptlets/#_systemd)
 - [CPack: RPM Generator](https://cmake.org/cmake/help/latest/cpack_gen/rpm.html#cpack_gen:CPack%20RPM%20Generator)
+- [Question: RPM upgrades](https://stackoverflow.com/questions/7398834/rpm-upgrade-uninstalls-the-rpm)
+- [Blog: RPM upgrades](https://lkhill.com/rpm-postupgrade/)
