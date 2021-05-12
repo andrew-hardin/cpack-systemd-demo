@@ -1,7 +1,7 @@
 # No idea what the minimum version is. This just happens to be
 # what I had installed at the time.
 cmake_minimum_required(VERSION 3.16)
-project(HelloWorld VERSION 0.2)
+project(HelloWorld VERSION 0.1)
 
 # Just because our hello-world is using a few C++11 features...
 set(CMAKE_CXX_STANDARD 11)
