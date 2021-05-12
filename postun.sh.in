@@ -1,3 +1,9 @@
+# Enable verbose logging.
+if [ "@VERBOSE_LOGGING@" = "TRUE" ]; then
+    set -o xtrace
+    echo "Running postun script for v@CMAKE_PROJECT_VERSION@"
+fi
+
 # Use the standard systemd scriptlet, then remove the
 # service file that we manually installed.
 service_name=@SERVICE_NAME@
