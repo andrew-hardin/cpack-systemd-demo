@@ -1,7 +1,7 @@
 # No idea what the minimum version is. This just happens to be
 # what I had installed at the time.
 cmake_minimum_required(VERSION 3.16)
-project(HelloWorld)
+project(HelloWorld VERSION 0.1)
 
 # Just because our hello-world is using a few C++11 features...
 set(CMAKE_CXX_STANDARD 11)
@@ -28,6 +28,11 @@ install(FILES ${SERVICE_OUT} DESTINATION share)
 # This could be done without going through the rigmarole of
 # using configures, but I don't want to hard-code the name
 # of the service into each file.
+#
+# Each script has the option of performing verbose logging
+# Switch this variable to TRUE to enable those logs.
+# I found this helpful while troubeshooting package upgrades.
+set(VERBOSE_LOGGING FALSE)
 set(POST_IN ${CMAKE_CURRENT_LIST_DIR}/post.sh.in)
 set(POST_OUT ${CMAKE_CURRENT_BINARY_DIR}/post.sh)
 configure_file(${POST_IN} ${POST_OUT} @ONLY)
@@ -39,7 +44,7 @@ set(PREUN_OUT ${CMAKE_CURRENT_BINARY_DIR}/preun.sh)
 configure_file(${PREUN_IN} ${PREUN_OUT} @ONLY)
 
 
-set(CPACK_PACKAGE_VERSION 0.1)
+set(CPACK_PACKAGE_VERSION ${CMAKE_PROJECT_VERSION})
 set(CPACK_GENERATOR "RPM")
 set(CPACK_PACKAGE_NAME "hello-world")
 set(CPACK_PACKAGE_RELEASE 1)
